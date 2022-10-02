@@ -13,8 +13,7 @@ export const Login = () => {
         <Form />
       </C.Left>
 
-      <div>
-      </div>
+      <C.Right /> 
     </C.Container>
   );
 }

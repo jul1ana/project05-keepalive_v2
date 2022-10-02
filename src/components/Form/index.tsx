@@ -51,7 +51,9 @@ export const Form = () => {
 
       {noValidated ? <C.Erro>Ops, usuário ou senha inválidos. Tente novamente!</C.Erro> : ""}
 
-      <button onClick={formValidation}>Continuar</button>
+      <C.Button onClick={formValidation}>Continuar</C.Button>
+
+      {/* <button onClick={formValidation}>Continuar</button> */}
 
     </C.Container>
 
