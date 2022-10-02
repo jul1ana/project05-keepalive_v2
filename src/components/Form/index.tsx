@@ -7,7 +7,6 @@ export const Form = () => {
   const [user, setUser] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [noValidated, setNoValidated] = useState<boolean>(false);
-  const [selected, setSelected] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const formValidation = (event: FormEvent<HTMLFormElement> | any) => {
@@ -21,17 +20,40 @@ export const Form = () => {
     } else return setNoValidated(true)
   }
 
-  return(
+  return (
 
-    <div>
+    <C.Container>
       <h2>Login</h2>
 
-      {/* <C.Input 
+      <div style={{ position: "relative" }}>
+        <C.Input
+          onChange={(event: any) => setUser(event.target.value)}
+          value={user}
+          type="text"
+          placeholder="Usuário"
+          noValidated={noValidated}
+          required
+        />
+        <C.Icon icon={true} transition={user} />
+      </div>
 
-      
-      /> */}
+      <div style={{ position: "relative" }}>
+        <C.Input
+          onChange={(event: any) => setPassword(event.target.value)}
+          value={password}
+          type="password"
+          placeholder="Senha"
+          noValidated={noValidated}
+          required
+        />
+        <C.Icon icon={false} transition={password} />
+      </div>
 
-    </div>
+      {noValidated ? <C.Erro>Ops, usuário ou senha inválidos. Tente novamente!</C.Erro> : ""}
+
+      <button onClick={formValidation}>Continuar</button>
+
+    </C.Container>
 
   );
 
