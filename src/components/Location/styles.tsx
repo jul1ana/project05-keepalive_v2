@@ -7,11 +7,11 @@ export const Location = styled.div`
 
   div {
     display: flex;
-    gap: .1rem;
-    /* align-items: center; */
+    gap: .3rem;
+    align-items: center;
   }
   h2 {
-    font-size: 1.5rem;
+    font-size: 2.3rem;
   }
   p {
     font-size: .5rem;

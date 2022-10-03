@@ -41,6 +41,11 @@ export const Left = styled.div`
     margin-bottom: 1rem;
   }
 
+  @media screen and (min-width: 1024px) {
+    width: 50%;
+    height: 70vh;
+  }
+
 `;
 
 export const Right = styled.div`
@@ -53,7 +58,10 @@ export const Right = styled.div`
     margin-right: 2rem;
     width: 50%;
     text-align: right;
+  }
 
+  @media screen and (min-width: 1024px) {
+    margin-right: 3rem;
   }
 
   h1{
@@ -67,7 +75,12 @@ export const Right = styled.div`
     @media screen and (min-width: 768px) {
       font-size: 1.1rem;
     }
+
+    @media screen and (min-width: 1024px) {
+      font-size: 2rem;
+    }
   }
+
   h2 {
     color: #C12D18;
     font-size: .9rem;
@@ -79,7 +92,12 @@ export const Right = styled.div`
     @media screen and (min-width: 768px) {
       font-size: .9rem;
     }
+
+    @media screen and (min-width: 1024px) {
+      font-size: 1.2rem;
+    }
   }
+
   p {
     color: #222222;
     font-weight: 400;
@@ -91,6 +109,10 @@ export const Right = styled.div`
 
     @media screen and (min-width: 768px) {
       font-size: .8rem;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 1rem;
     }
   }
 
@@ -110,6 +132,11 @@ export const Footer = styled.footer`
     font-size: .8rem;
     gap: 2rem;
     /* margin-top: 1rem; */
+  }
+
+  @media screen and (min-width: 1024px) {
+    position: absolute;
+    margin-top: -2.8rem;
   }
 
 

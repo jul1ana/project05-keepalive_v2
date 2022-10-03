@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Logo from "../../assets/LogoCompass.svg";
 import Location from "../../components/Location";
+import { Time } from "../../components/Time";
 
 export const Home = () => {
 
@@ -23,7 +24,7 @@ export const Home = () => {
     <>
       <C.Header>
         <img src={Logo} />
-        <div></div>
+        <div> <Time /> </div>
         <Location />
       </C.Header>
 
