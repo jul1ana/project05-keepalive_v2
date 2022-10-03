@@ -11,7 +11,7 @@ export const Location = styled.div`
     align-items: center;
   }
   h2 {
-    font-size: 2.3rem;
+    font-size: 1.7rem;
   }
   p {
     font-size: .5rem;

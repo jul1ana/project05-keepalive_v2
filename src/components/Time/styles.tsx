@@ -13,12 +13,25 @@ export const TimeDay = styled.div`
 
     p {
       font-weight: 700;
-      font-size: 6rem;
+      font-size: 4rem;
     }
     span {
       font-weight: 360;
-      margin-top: -1.5rem;
-      font-size: .8rem;
+      margin-top: -1.2rem;
+      font-size: .5rem;
+    }
+  }
+
+  @media screen and (min-width: 1100px) {
+
+    p {
+      font-weight: 700;
+      font-size: 4.75rem;
+    }
+    span {
+      font-weight: 360;
+      margin-top: -1.2rem;
+      font-size: .5rem;
     }
   }
 `;

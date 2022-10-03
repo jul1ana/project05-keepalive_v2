@@ -7,7 +7,7 @@ import { Time } from "../../components/Time";
 
 export const Home = () => {
 
-  const [cont, setCont] = useState(1000);
+  const [cont, setCont] = useState(600);
   const navigate = useNavigate();
 
   useEffect(() => {

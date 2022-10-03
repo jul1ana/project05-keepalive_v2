@@ -8,11 +8,17 @@ export const Header = styled.header`
   justify-content: space-between;
 
   img {
-    width: 40%;
+    width: 6rem;
     margin-bottom: 2rem;
 
     @media screen and (min-width: 768px) {
       width: 16%;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 6rem;
+      margin-top: -1rem;
+      padding: 0;
     }
   }
 `;
@@ -31,30 +37,27 @@ export const Container = styled.section`
 
 export const Left = styled.div`
 
-  @media screen and (min-width: 768px) {
-    width: 30%;
-    height: 60vh;
+  @media screen and (min-width: 768px) and (max-width: 1444px) {
+    width: 50%;
+    height: 70vh;
     margin-top: 2rem;
     background-image: url(${ImgBall});
     background-size: contain;
     background-repeat: no-repeat; 
     margin-bottom: 1rem;
   }
-
-  @media screen and (min-width: 1024px) {
-    width: 50%;
-    height: 70vh;
-  }
-
 `;
 
 export const Right = styled.div`
 
   text-align: center;
-  padding: 1.5rem 1rem 1rem 1rem;
+  padding: 1.5rem 1rem 2rem 1rem;
+
+  @media screen and (min-width: 450px) {
+    padding-top: 2.5rem;
+  }
 
   @media screen and (min-width: 768px) {
-    /* padding: 1rem; */
     margin-right: 2rem;
     width: 50%;
     text-align: right;
@@ -62,13 +65,14 @@ export const Right = styled.div`
 
   @media screen and (min-width: 1024px) {
     margin-right: 3rem;
+    width: 60%;
   }
 
   h1{
     color: #C12D18;
     font-size: 1.1rem;
 
-    @media screen and (min-width: 320px) {
+    @media screen and (min-width: 320px) and (max-width: 767px) {
       font-size: .9rem;
     }
 
@@ -85,7 +89,7 @@ export const Right = styled.div`
     color: #C12D18;
     font-size: .9rem;
 
-    @media screen and (min-width: 320px) {
+    @media screen and (min-width: 320px) and (max-width: 767px) {
       font-size: .75rem;
     }
 
@@ -103,7 +107,7 @@ export const Right = styled.div`
     font-weight: 400;
     font-size: .85rem;
 
-    @media screen and (min-width: 320px) {
+    @media screen and (min-width: 320px) and (max-width: 767px) {
       font-size: .7rem;
     }
 
@@ -126,19 +130,14 @@ export const Footer = styled.footer`
   flex-direction: column;
   justify-content: space-between;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1444px) {
+    position: absolute;
+    margin-top: -2.8rem;
     display: flex;
     flex-direction: row;
     font-size: .8rem;
     gap: 2rem;
-    /* margin-top: 1rem; */
   }
-
-  @media screen and (min-width: 1024px) {
-    position: absolute;
-    margin-top: -2.8rem;
-  }
-
 
 `;
 
@@ -158,12 +157,16 @@ export const Text = styled.div`
   p {
     font-size: .8rem;
 
-    @media screen and (min-width: 320px) {
+    @media screen and (min-width: 320px) and (max-width: 767px) {
       font-size: .65rem;
     }
 
     @media screen and (min-width: 768px) {
       font-size: .7rem;
+    }
+
+    @media screen and (min-width: 1100px) {
+      width: 70%;
     }
   }
 
@@ -186,17 +189,29 @@ export const Cont = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
+    gap: 1rem;
+  }
+
+  @media screen and (min-width: 1100px) {
+    width: 10%;
+    margin-right: 10rem;
   }
 
   p {
     font-size: .8rem;
 
-    @media screen and (min-width: 320px) {
+    @media screen and (min-width: 320px) and (max-width: 767px) {
       font-size: .65rem;
     }
 
     @media screen and (min-width: 768px) {
       font-size: .7rem;
+    }
+  }
+
+  h3 {
+    @media screen and (min-width: 1024px) {
+      font-size: 30px;
     }
   }
 
@@ -210,7 +225,7 @@ export const Nav = styled.div`
   align-items: center;
   font-size: .9rem;
 
-  @media screen and (min-width: 320px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     font-size: .7rem;
   }
 
@@ -242,15 +257,13 @@ export const BtnLink = styled.a`
   background-color: white;
   padding: 1.5rem 3.9rem;
 
-  @media screen and (min-width: 320px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     padding: 1.1rem 6.2rem;
-  }
-
-  @media screen and (min-width: 425px) {
-    padding: 1.1rem 9.5rem;
+    border-radius: .45rem;
   }
 
   @media screen and (min-width: 768px) {
+    border-radius: 0;
     padding: 1.6rem 2rem;
   }
 `;
