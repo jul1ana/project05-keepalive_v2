@@ -7,6 +7,14 @@ export const Header = styled.header`
   gap: .2rem;
   justify-content: space-between;
 
+  @media screen and (min-width: 1024px) {
+    padding-bottom: 3rem;
+  }
+
+  @media screen and (min-width: 1100px) {
+    padding-bottom: .1rem;
+  }
+
   img {
     width: 6rem;
     margin-bottom: 2rem;
@@ -31,7 +39,6 @@ export const Container = styled.section`
     max-height: 100vh;
     align-items: center;
   }
-
 `;
 
 export const Left = styled.div`
