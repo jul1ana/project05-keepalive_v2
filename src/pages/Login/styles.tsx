@@ -4,7 +4,6 @@ import ImgBack from "../../assets/MaskGroup.png";
 export const Container = styled.div`
   background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
   height: 100vh;
-  /* width: 100vw; */
   color: white;
   display: flex;
   flex-direction: column;
@@ -23,6 +22,10 @@ export const Container = styled.div`
   img {
     width: 50vw;
     padding: 1rem;
+
+    @media screen and (min-width: 432px) {
+      width: 13rem;
+    }
 
     @media screen and (min-width: 768px) {
       width: 25%;

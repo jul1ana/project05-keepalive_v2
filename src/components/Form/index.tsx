@@ -53,8 +53,6 @@ export const Form = () => {
 
       <C.Button onClick={formValidation}>Continuar</C.Button>
 
-      {/* <button onClick={formValidation}>Continuar</button> */}
-
     </C.Container>
 
   );

@@ -58,15 +58,15 @@ export const Input = styled.input<IInput>`
     color: white
   }
 
-  @media screen and (min-width: 320px) {
-    width: 80%;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 15rem;
   }
 
-  @media screen and (min-width: 728px) {
+  @media screen and (min-width: 768px) {
     width: 90%;
   }
 
-  @media screen and (min-width: 1024) {
+  @media screen and (min-width: 1024px) {
     width: 100%;
   }
 `;
@@ -85,9 +85,10 @@ export const Button = styled.button`
   filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.5));
   cursor: pointer;
 
-  /* @media screen and (min-width: 1024) {
-    padding: 13px 2px;
-  } */
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 17.5rem;
+  }
+
 `;
 
 export const Icon = styled.i<IIcon>`
@@ -97,7 +98,7 @@ export const Icon = styled.i<IIcon>`
   display: inline-block;
   position: absolute;
   transition: 1s;
-  top: 15px;
+  top: 8px;
   width: 20px;
   height: 25px;
 
@@ -111,18 +112,14 @@ export const Erro = styled.span`
   text-align: center;
   color: #E9B425;
   margin-top: 1rem;
+  width: 14rem;
 
-  @media screen and (min-width: 320px) {
-    width: 93%;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 13rem;
+    margin-left: 1.5rem;
   }
 
-  @media screen and (min-width: 768px) {
-    margin-left: 12rem;
-    width: 40%;
-  }
-
-  @media screen and (min-width: 728px) {
-    margin-left: 2rem;
-    width: 80%;
+  @media screen and (min-width: 1024px) {
+    margin-left: 3rem;
   }
 `;
