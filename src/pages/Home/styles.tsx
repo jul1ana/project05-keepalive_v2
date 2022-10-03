@@ -12,13 +12,12 @@ export const Header = styled.header`
     margin-bottom: 2rem;
 
     @media screen and (min-width: 768px) {
-      width: 16%;
+      margin-top: .1rem;
+      padding: 0;
     }
 
-    @media screen and (min-width: 768px) {
-      width: 6rem;
-      margin-top: -1rem;
-      padding: 0;
+    @media screen and (min-width: 1100px) {
+      margin-top: -2rem;
     }
   }
 `;
@@ -50,7 +49,7 @@ export const Left = styled.div`
 
 export const Right = styled.div`
 
-  text-align: center;
+  text-align: left;
   padding: 1.5rem 1rem 2rem 1rem;
 
   @media screen and (min-width: 450px) {
@@ -264,6 +263,6 @@ export const BtnLink = styled.a`
 
   @media screen and (min-width: 768px) {
     border-radius: 0;
-    padding: 1.6rem 2rem;
+    padding: 1.8rem 2rem;
   }
 `;
