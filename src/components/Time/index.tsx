@@ -10,12 +10,14 @@ export const Time = () => {
 
   return (
     <C.TimeDay>
+
       <p>
         {dateState.toLocaleString("pt-BR", {
           hour: "numeric",
           minute: "numeric",
         })}
       </p>
+      
       <span>
         {" "}
         {dateState.toLocaleDateString("pt-BR", {
@@ -25,6 +27,7 @@ export const Time = () => {
           year: "numeric",
         })}
       </span>
+
     </C.TimeDay>
   );
 }

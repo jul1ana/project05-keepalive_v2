@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import iconUser from "../../assets/iconUser.svg";
 import iconPasswrd from "../../assets/iconPassword.svg";
+import { btnLogin, msgError } from "../../UI/variables";
 
 interface IInput {
   noValidated: boolean;
@@ -29,20 +30,6 @@ export const Container = styled.div`
     font-size: 1.1rem;
     font-weight: 350;
   }
-  /* button {
-    box-sizing: border-box;
-    background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
-    color: white;
-    padding: 13px 8px;
-    margin-top: 3rem;
-    border: 0;
-    font-size: 0.8rem;
-    font-weight: 500;
-    box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
-    border-radius: 50px;
-    filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.5));
-    cursor: pointer;
-  } */
 `;
 
 export const Input = styled.input<IInput>`
@@ -72,8 +59,9 @@ export const Input = styled.input<IInput>`
 `;
 
 export const Button = styled.button`
+  width: 14rem;
   box-sizing: border-box;
-  background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
+  background: ${btnLogin};
   color: white;
   padding: 13px 8px;
   margin-top: 3rem;
@@ -86,9 +74,12 @@ export const Button = styled.button`
   cursor: pointer;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
-    width: 17.5rem;
+    width: 17rem;
   }
 
+  @media screen and (min-width: 1024px) {
+    width: 19.5rem;
+  }
 `;
 
 export const Icon = styled.i<IIcon>`
@@ -110,7 +101,7 @@ export const Icon = styled.i<IIcon>`
 export const Erro = styled.span`
   font-size: .8rem;
   text-align: center;
-  color: #E9B425;
+  color: ${msgError};
   margin-top: 1rem;
   width: 14rem;
 

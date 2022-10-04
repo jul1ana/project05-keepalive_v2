@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const TimeDay = styled.div`
-
   @media screen and (min-width: 280px) {
     display: none;
   }
@@ -15,6 +14,7 @@ export const TimeDay = styled.div`
       font-weight: 700;
       font-size: 4rem;
     }
+
     span {
       font-weight: 360;
       margin-top: -1.2rem;
@@ -23,11 +23,11 @@ export const TimeDay = styled.div`
   }
 
   @media screen and (min-width: 1100px) {
-
     p {
       font-weight: 700;
       font-size: 4.75rem;
     }
+    
     span {
       font-weight: 360;
       margin-top: -1.2rem;

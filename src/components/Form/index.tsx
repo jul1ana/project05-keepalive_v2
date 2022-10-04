@@ -21,7 +21,6 @@ export const Form = () => {
   }
 
   return (
-
     <C.Container>
       <h2>Login</h2>
 
@@ -54,7 +53,5 @@ export const Form = () => {
       <C.Button onClick={formValidation}>Continuar</C.Button>
 
     </C.Container>
-
   );
-
 }

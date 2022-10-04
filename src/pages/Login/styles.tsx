@@ -1,12 +1,17 @@
 import styled from "styled-components";
 import ImgBack from "../../assets/MaskGroup.png";
+import { backgroundLogin } from "../../UI/variables";
 
 export const Container = styled.div`
-  background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
+  background: ${backgroundLogin};
   height: 100vh;
   color: white;
   display: flex;
   flex-direction: column;
+
+  @media screen and (min-height: 279px) { 
+    min-height: 500px;
+  }
 
   @media screen and (min-width: 768px) {
     align-items: center;
@@ -65,11 +70,15 @@ export const Left = styled.div`
   @media screen and (min-width: 768px) {
     font-size: 2rem;
   }
-
  }
+ 
  p {
     font-size: .75rem;
     font-weight: 340;
+
+    @media screen and (min-width: 320px) {
+      width: 13.5rem;
+    }
 
     @media screen and (min-width: 768px) {
     font-size: .8rem;

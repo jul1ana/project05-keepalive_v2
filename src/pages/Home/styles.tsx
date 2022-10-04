@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ImgBall from "../../assets/bolaCompass.svg";
+import { backgroundFooter, btnLink, text, titleMain } from "../../UI/variables";
 
 export const Header = styled.header`
   display: flex;
@@ -31,7 +32,6 @@ export const Header = styled.header`
 `;
 
 export const Container = styled.section`
-
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
@@ -42,7 +42,6 @@ export const Container = styled.section`
 `;
 
 export const Left = styled.div`
-
   @media screen and (min-width: 768px) and (max-width: 1444px) {
     width: 50%;
     height: 70vh;
@@ -55,7 +54,6 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
-
   text-align: left;
   padding: 1.5rem 1rem 2rem 1rem;
 
@@ -75,7 +73,7 @@ export const Right = styled.div`
   }
 
   h1{
-    color: #C12D18;
+    color: ${titleMain};
     font-size: 1.1rem;
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -92,7 +90,7 @@ export const Right = styled.div`
   }
 
   h2 {
-    color: #C12D18;
+    color: ${titleMain};
     font-size: .9rem;
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -109,7 +107,7 @@ export const Right = styled.div`
   }
 
   p {
-    color: #222222;
+    color: ${text};
     font-weight: 400;
     font-size: .85rem;
 
@@ -125,12 +123,10 @@ export const Right = styled.div`
       font-size: 1rem;
     }
   }
-
 `;
 
 export const Footer = styled.footer`
-
-  background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
+  background: ${backgroundFooter};
   color: white;
   display: flex;
   flex-direction: column;
@@ -144,11 +140,9 @@ export const Footer = styled.footer`
     font-size: .8rem;
     gap: 2rem;
   }
-
 `;
 
 export const Text = styled.div`
-
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -179,12 +173,9 @@ export const Text = styled.div`
   hr {
     border: 1px solid white;
   }
-
-
 `;
 
 export const Cont = styled.div`
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -205,7 +196,6 @@ export const Cont = styled.div`
 
   p {
     font-size: .8rem;
-
     @media screen and (min-width: 320px) and (max-width: 767px) {
       font-size: .65rem;
     }
@@ -220,11 +210,9 @@ export const Cont = styled.div`
       font-size: 30px;
     }
   }
-
 `;
 
 export const Nav = styled.div`
-
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -240,8 +228,6 @@ export const Nav = styled.div`
     flex-direction: row;
     font-size: .75rem;
   }
-
-
 `;
 
 export const BtnLinkOut = styled.a`
@@ -253,13 +239,12 @@ export const BtnLinkOut = styled.a`
   @media screen and (min-width: 768px) {
     padding: 0 1.8rem;
   }
-
 `;
 
 export const BtnLink = styled.a`
   text-decoration: none;
   font-weight: 400;
-  color: #C13216;
+  color: ${btnLink};
   background-color: white;
   padding: 1.5rem 3.9rem;
 

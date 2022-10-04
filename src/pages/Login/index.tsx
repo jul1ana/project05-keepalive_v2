@@ -12,7 +12,7 @@ export const Login = () => {
         <p>Para continuar navegando de forma segura, efetue o login na rede.</p>
         <Form />
       </C.Left>
-
+      
       <C.Right /> 
     </C.Container>
   );
