@@ -5,7 +5,7 @@ import { auth } from "../../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import "firebase/compat/database";
 import { appFirebase } from "../../config/firebase";
-import { useFirstNameContext } from "../context/FirtsName/FirstNameContext";
+import { useFirstNameContext } from "../../context/FirstName";
 
 export const RegisterForm = () => {
 

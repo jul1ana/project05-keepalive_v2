@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useFirstNameContext } from "../context/FirtsName/FirstNameContext";
+import { useFirstNameContext } from "../../context/FirstName";
 import firebase from "firebase/compat/app";
 
 export const Form = () => {

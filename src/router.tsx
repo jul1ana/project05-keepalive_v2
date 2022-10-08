@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
-import { FirstNameContext } from "./components/context/FirtsName/FirstNameContext";
+import { FirstNameContext } from "./context/FirstName";
 import { useState } from "react";
 
 export const Router = () => {

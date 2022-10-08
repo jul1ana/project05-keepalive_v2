@@ -4,16 +4,12 @@ import { useState, useEffect } from "react";
 import Logo from "../../assets/LogoCompass.svg";
 import Location from "../../components/Location";
 import { Time } from "../../components/Time";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../config/firebase"; 
-import { useFirstNameContext } from "../../components/context/FirtsName/FirstNameContext";
+import { useFirstNameContext } from "../../context/FirstName";
 
 export const Home = () => {
 
   const { firstName } = useFirstNameContext();
-
-  // const [user, loading, error] = useAuthState(auth);
-
   const [cont, setCont] = useState(60);
   const navigate = useNavigate();
 
