@@ -235,6 +235,7 @@ export const BtnLinkOut = styled.a`
   font-weight: 700;
   color: white;
   padding: 1.5rem 1rem;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     padding: 0 1.8rem;
@@ -247,6 +248,7 @@ export const BtnLink = styled.a`
   color: ${btnLink};
   background-color: white;
   padding: 1.5rem 3.9rem;
+  cursor: pointer;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     padding: 1.1rem 6.2rem;

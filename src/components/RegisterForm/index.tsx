@@ -3,10 +3,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import "firebase/compat/database";
+import { appFirebase } from "../../config/firebase";
+import { useFirstNameContext } from "../context/FirtsName/FirstNameContext";
 
 export const RegisterForm = () => {
 
-  const [firstName, setFirstName] = useState<string>("");
+  const {firstName, setFirstName} = useFirstNameContext();
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -14,6 +17,13 @@ export const RegisterForm = () => {
   const navigate = useNavigate();
 
   const register = () => {
+    const data = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password
+    }
+    appFirebase.database().ref().child("users").push(data);
     createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
       navigate("/");

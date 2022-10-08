@@ -1,10 +1,14 @@
 import * as C from "./styles";
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useFirstNameContext } from "../context/FirtsName/FirstNameContext";
+import firebase from "firebase/compat/app";
 
 export const Form = () => {
+
+  const { setFirstName } = useFirstNameContext();
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -12,18 +16,30 @@ export const Form = () => {
   const navigate = useNavigate();
 
   const signIn = () => {
+
+    firebase
+      .database()
+      .ref('users')
+      .on("value", function (snapshot) {
+        snapshot.forEach(function (item) {
+          if (item.val().email === email) {
+            setFirstName(item.val().firstName);
+          }
+        });
+      });
+
     signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      navigate("/home");
-      setNoValidated(false);
-      // console.log(email, password);
-    })
-    .catch((error) => {
-      if (error.code == "auth/wrong-password" || error.code == "auth/user-not-found") {
-        return setNoValidated(true);
-      }
-      alert("Não foi possível efetuar o login")
-    });
+      .then(() => {
+        navigate("/home");
+        setNoValidated(false);
+        // console.log(email, password);
+      })
+      .catch((error) => {
+        if (error.code == "auth/wrong-password" || error.code == "auth/user-not-found") {
+          return setNoValidated(true);
+        }
+        alert("Não foi possível efetuar o login")
+      });
   }
 
   return (

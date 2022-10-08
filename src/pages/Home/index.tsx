@@ -4,11 +4,23 @@ import { useState, useEffect } from "react";
 import Logo from "../../assets/LogoCompass.svg";
 import Location from "../../components/Location";
 import { Time } from "../../components/Time";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../config/firebase"; 
+import { useFirstNameContext } from "../../components/context/FirtsName/FirstNameContext";
 
 export const Home = () => {
 
+  const { firstName } = useFirstNameContext();
+
+  // const [user, loading, error] = useAuthState(auth);
+
   const [cont, setCont] = useState(60);
   const navigate = useNavigate();
+
+  const logOut = () => {
+    auth.signOut();
+    navigate("/");
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -31,6 +43,11 @@ export const Home = () => {
       <C.Container>
         <C.Left />
         <C.Right>
+
+          <p>
+            Welcome {firstName}
+          </p>
+
           <h2>Our mission is</h2>
           <p>Nossa missão é</p>
           <h1>to transform the world</h1>
@@ -56,7 +73,7 @@ export const Home = () => {
         </C.Cont>
         <C.Nav>
           <C.BtnLink href="https://compass.uol/en/home/">Continuar Navegando</C.BtnLink>
-          <C.BtnLinkOut href="/">Logout</C.BtnLinkOut>
+          <C.BtnLinkOut onClick={logOut}>Logout</C.BtnLinkOut>
         </C.Nav>
       </C.Footer>
     </>
