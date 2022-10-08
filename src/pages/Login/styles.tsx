@@ -85,6 +85,14 @@ export const Left = styled.div`
     width: 63%;
   }
   }
+
+  div {
+    p {
+      width: 50%;
+      text-align: center;
+      margin-left: 3.5rem;
+    }
+  }
 `;
 
 export const Right = styled.div`

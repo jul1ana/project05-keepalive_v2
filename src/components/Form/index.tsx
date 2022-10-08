@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Form = () => {
 
-  const [user, setUser] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [noValidated, setNoValidated] = useState<boolean>(false);
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export const Form = () => {
 
     let regEmail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
 
-    if (regEmail.test(user) && password.length > 6) {
+    if (regEmail.test(email) && password.length > 6) {
       navigate("/home");
       setNoValidated(false)
     } else return setNoValidated(true)
@@ -26,14 +26,14 @@ export const Form = () => {
 
       <div style={{ position: "relative" }}>
         <C.Input
-          onChange={(event: any) => setUser(event.target.value)}
-          value={user}
+          onChange={(event: any) => setEmail(event.target.value)}
+          value={email}
           type="text"
-          placeholder="Usuário"
+          placeholder="Email"
           noValidated={noValidated}
           required
         />
-        <C.Icon icon={true} transition={user} />
+        <C.Icon icon={true} transition={email} />
       </div>
 
       <div style={{ position: "relative" }}>

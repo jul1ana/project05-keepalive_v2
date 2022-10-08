@@ -11,6 +11,9 @@ export const Login = () => {
         <h1>Olá,</h1>
         <p>Para continuar navegando de forma segura, efetue o login na rede.</p>
         <Form />
+        <div>
+          <p>Se você não possui um cadastro <a href="/register">clique aqui</a></p>
+        </div>
       </C.Left>
       
       <C.Right /> 

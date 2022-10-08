@@ -12,7 +12,7 @@ export const Container = styled.section`
 
 export const Left = styled.div`
   width: 50%;
-  padding: 4rem;
+  padding: 2rem 4rem;
 
   h1 {
     font-size: 1.5rem;
@@ -23,6 +23,15 @@ export const Left = styled.div`
     font-size: .8rem;
     font-weight: 350;
     width: 50%;
+  }
+
+  div {
+    margin-top: 1rem;
+    p {
+      width: 40%;
+      text-align: center;
+      margin-left: 5rem;
+    }
   }
 `;
 

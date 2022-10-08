@@ -1,5 +1,8 @@
 import * as C from "./styles";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../config/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export const RegisterForm = () => {
 
@@ -8,42 +11,64 @@ export const RegisterForm = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmationPassword, setConfirmationPassword] = useState<string>("");
+  const navigate = useNavigate();
 
-  return(
+  const register = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      navigate("/");
+      alert("Cadastro realizado!");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+  return (
     <C.Container>
       <h2>Cadastro</h2>
 
-      <C.Input 
+      <C.Input
         type="text"
-        placeholder="Nome" 
-      
-      />
-      
-      <C.Input 
-        type="text" 
-        placeholder="Sobrenome"
-      
-      />
-      
-      <C.Input 
-        type="text" 
-        placeholder="Email"
-      
-      />
-      
-      <C.Input 
-        type="text" 
-        placeholder="Senha"
-      
-      />
-      
-      <C.Input 
-        type="text" 
-        placeholder="Confirme sua senha"
-      
+        placeholder="Nome"
+        onChange={(event: any) => setFirstName(event.target.value)}
+        value={firstName}
+        required
       />
 
-      <C.Button>Cadastrar</C.Button>
+      <C.Input
+        type="text"
+        placeholder="Sobrenome"
+        onChange={(event: any) => setLastName(event.target.value)}
+        value={lastName}
+        required
+      />
+
+      <C.Input
+        type="text"
+        placeholder="Email"
+        onChange={(event: any) => setEmail(event.target.value)}
+        value={email}
+        required
+      />
+
+      <C.Input
+        type="text"
+        placeholder="Senha"
+        onChange={(event: any) => setPassword(event.target.value)}
+        value={password}
+        required
+      />
+
+      <C.Input
+        type="text"
+        placeholder="Confirme sua senha"
+        onChange={(event: any) => setConfirmationPassword(event.target.value)}
+        value={confirmationPassword}
+        required
+      />
+
+      <C.Button onClick={register}>Cadastrar</C.Button>
     </C.Container>
   );
 }
