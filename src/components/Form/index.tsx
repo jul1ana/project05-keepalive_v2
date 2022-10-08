@@ -1,6 +1,8 @@
 import * as C from "./styles";
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../config/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export const Form = () => {
 
@@ -9,15 +11,19 @@ export const Form = () => {
   const [noValidated, setNoValidated] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const formValidation = (event: FormEvent<HTMLFormElement> | any) => {
-    event.preventDefault();
-
-    let regEmail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
-
-    if (regEmail.test(email) && password.length > 6) {
+  const signIn = () => {
+    signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
       navigate("/home");
-      setNoValidated(false)
-    } else return setNoValidated(true)
+      setNoValidated(false);
+      // console.log(email, password);
+    })
+    .catch((error) => {
+      if (error.code == "auth/wrong-password" || error.code == "auth/user-not-found") {
+        return setNoValidated(true);
+      }
+      alert("Não foi possível efetuar o login")
+    });
   }
 
   return (
@@ -50,7 +56,7 @@ export const Form = () => {
 
       {noValidated ? <C.Erro>Ops, usuário ou senha inválidos. Tente novamente!</C.Erro> : ""}
 
-      <C.Button onClick={formValidation}>Continuar</C.Button>
+      <C.Button onClick={signIn}>Continuar</C.Button>
     </C.Container>
   );
 }
