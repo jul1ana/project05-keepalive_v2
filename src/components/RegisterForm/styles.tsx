@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
-  gap: 1.25rem;
+  gap: 1rem;
 
   h2 {
     font-size: 1.2rem;
@@ -30,7 +30,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   width: 70%;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
   background: ${btnLogin};
   box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
   border-radius: 50px;

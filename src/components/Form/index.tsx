@@ -7,16 +7,13 @@ import { useFirstNameContext } from "../../context/FirstName";
 import firebase from "firebase/compat/app";
 
 export const Form = () => {
-
   const { setFirstName } = useFirstNameContext();
-
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [noValidated, setNoValidated] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const signIn = () => {
-
     firebase
       .database()
       .ref('users')
@@ -32,7 +29,6 @@ export const Form = () => {
       .then(() => {
         navigate("/home");
         setNoValidated(false);
-        // console.log(email, password);
       })
       .catch((error) => {
         if (error.code == "auth/wrong-password" || error.code == "auth/user-not-found") {
@@ -45,7 +41,6 @@ export const Form = () => {
   return (
     <C.Container>
       <h2>Login</h2>
-
       <div style={{ position: "relative" }}>
         <C.Input
           onChange={(event: any) => setEmail(event.target.value)}

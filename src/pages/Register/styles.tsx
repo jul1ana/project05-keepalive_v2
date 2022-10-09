@@ -26,7 +26,7 @@ export const Left = styled.div`
   }
 
   div {
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     p {
       width: 40%;
       text-align: center;

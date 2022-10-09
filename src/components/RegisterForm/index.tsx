@@ -9,7 +9,6 @@ import { useFirstNameContext } from "../../context/FirstName";
 import { ModalValidation } from "../Validation/modalValidate";
 
 export const RegisterForm = () => {
-
   const {firstName, setFirstName} = useFirstNameContext();
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
