@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import "firebase/compat/database";
 import { appFirebase } from "../../config/firebase";
 import { useFirstNameContext } from "../../context/FirstName";
+import { ModalValidation } from "../Validation/modalValidate";
 
 export const RegisterForm = () => {
 
@@ -14,6 +15,7 @@ export const RegisterForm = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmationPassword, setConfirmationPassword] = useState<string>("");
+  const [mode, setMode] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const register = () => {
@@ -66,8 +68,15 @@ export const RegisterForm = () => {
         type="text"
         placeholder="Senha"
         onChange={(event: any) => setPassword(event.target.value)}
+        onFocus={() => setMode(true)}
+        onBlur={() => setMode(false)}
         value={password}
         required
+      />
+
+      <ModalValidation 
+       password={password}
+       mode={mode}
       />
 
       <C.Input
