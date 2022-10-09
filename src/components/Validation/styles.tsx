@@ -1,24 +1,16 @@
 import styled from "styled-components";
 import iconError from "../../assets/iconError.png"
 import iconCheck from "../../assets/iconCheck.png"
-import { backgroundLogin } from "../../UI/variables";
 
 export const Container = styled.div<{fade:boolean}>`
-  position: absolute;
   visibility: ${({ fade }) => (fade ? "visible" : "hidden")};
   color: white;
-  background: #26292C;;
-  margin-top: 16.95rem;
-  margin-left: 1.5rem;
-  padding: .5rem;
-  border: 1px solid white;
-  border-top: 0;
-  border-radius: 2px;
+  margin-left: 1rem;
 
   div {
     h4 {
       font-size: .9rem;
-      font-weight: 500;
+      font-weight: 450;
       margin-bottom: .2rem;
     }
   }

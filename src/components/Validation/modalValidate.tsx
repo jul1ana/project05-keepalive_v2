@@ -1,7 +1,7 @@
 import * as C from "./styles";
 
 interface IValidate {
-  password: string,
+  password: string
   mode: boolean
 }
 

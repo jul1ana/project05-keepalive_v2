@@ -13,7 +13,9 @@ export const Form = () => {
   const [noValidated, setNoValidated] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const signIn = () => {
+  const signIn = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     firebase
       .database()
       .ref('users')
@@ -34,12 +36,12 @@ export const Form = () => {
         if (error.code == "auth/wrong-password" || error.code == "auth/user-not-found") {
           return setNoValidated(true);
         }
-        alert("Não foi possível efetuar o login")
+        alert("Não foi possível efetuar o login");
       });
   }
 
   return (
-    <C.Container>
+    <C.Container onSubmit={signIn}>
       <h2>Login</h2>
       <div style={{ position: "relative" }}>
         <C.Input
@@ -67,7 +69,7 @@ export const Form = () => {
 
       {noValidated ? <C.Erro>Ops, usuário ou senha inválidos. Tente novamente!</C.Erro> : ""}
 
-      <C.Button onClick={signIn}>Continuar</C.Button>
+      <C.Button>Continuar</C.Button>
     </C.Container>
   );
 }

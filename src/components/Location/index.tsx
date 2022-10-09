@@ -57,7 +57,16 @@ class Location extends React.Component {
         </C.Location>
       );
     } else {
-      return <span>Loading...</span>;
+      this.getWeather(-15.7801, -41.9292);
+      return(
+        <C.Location>
+          <p>{city} - DF</p>
+          <div>
+            <Temp/>
+            <h2>{temperatureC}°</h2>
+          </div>
+        </C.Location>
+      );
     }
   }
 }

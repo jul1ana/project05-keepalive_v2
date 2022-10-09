@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ImgBack from "../../assets/MaskGroup.png";
-import { backgroundLogin } from "../../UI/variables";
+import { backgroundLogin, titleMain } from "../../UI/variables";
 
 export const Container = styled.div`
   background: ${backgroundLogin};
@@ -91,6 +91,11 @@ export const Left = styled.div`
       width: 50%;
       text-align: center;
       margin-left: 3.5rem;
+
+      a {
+        color: ${titleMain};
+        font-weight: 500;
+      }
     }
   }
 `;

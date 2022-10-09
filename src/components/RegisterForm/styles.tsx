@@ -1,7 +1,11 @@
 import styled from "styled-components";
-import { btnLogin } from "../../UI/variables";
+import { btnLogin, msgError } from "../../UI/variables";
 
-export const Container = styled.div`
+interface IInput {
+  noValidated: boolean;
+}
+
+export const Container = styled.form`
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
@@ -13,9 +17,9 @@ export const Container = styled.div`
   }
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<IInput>`
+  border: ${({ noValidated }) => noValidated ? "1px solid #E9B425" : "1px solid white"};
   width: 70%;
-  border: 1px solid white;
   padding: 13px 8px;
   box-sizing: border-box;
   background: #26292C;
@@ -30,7 +34,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   width: 70%;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   background: ${btnLogin};
   box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
   border-radius: 50px;
@@ -40,4 +44,12 @@ export const Button = styled.button`
   cursor: pointer;
   color: white;
   padding: .8rem;
+`;
+
+export const Erro = styled.span`
+  margin-left: 5.6rem;
+  font-size: .8rem;
+  text-align: center;
+  color: ${msgError};
+  width: 12rem;
 `;

@@ -8,9 +8,8 @@ import { auth } from "../../config/firebase";
 import { useFirstNameContext } from "../../context/FirstName";
 
 export const Home = () => {
-
   const { firstName } = useFirstNameContext();
-  const [cont, setCont] = useState(60);
+  const [cont, setCont] = useState(600);
   const navigate = useNavigate();
 
   const logOut = () => {
@@ -38,12 +37,8 @@ export const Home = () => {
 
       <C.Container>
         <C.Left />
+
         <C.Right>
-
-          <p>
-            Welcome {firstName}
-          </p>
-
           <h2>Our mission is</h2>
           <p>Nossa missão é</p>
           <h1>to transform the world</h1>
@@ -57,6 +52,7 @@ export const Home = () => {
 
       <C.Footer>
         <C.Text>
+          <h4>Seja bem vindo, {firstName} !</h4>
           <p>Essa janela do navegador é usada para manter sua sessão de autenticação ativa. Deixe-a aberta em segundo plano e abra uma nova janela para continuar a navegar.</p>
           <hr />
         </C.Text>
