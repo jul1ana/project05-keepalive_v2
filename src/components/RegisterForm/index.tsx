@@ -52,7 +52,7 @@ export const RegisterForm = () => {
   }
 
   return (
-    <C.Container onSubmit={register}>
+    <C.Container >
       <h2>Cadastro</h2>
 
       <C.Input

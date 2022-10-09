@@ -1,22 +1,22 @@
-import { RegisterForm } from "../../components/RegisterForm";
 import * as C from "./styles";
+import { RegisterForm } from "../../components/RegisterForm";
+import Logo from "../../assets/logoHeader.svg";
 
 export const Register = () => {
-  return(
+  return (
     <C.Container>
-      <div></div>
+      <img src={Logo} />
 
-      <C.Left>
+      <C.Section>
         <h1>Olá,</h1>
         <p>Para continuar navegando de forma segura, efetue o cadastro na rede.</p>
         <RegisterForm />
         <div>
           <p>Se você já possui um cadastro <a href="/">clique aqui</a></p>
         </div>
-      </C.Left>
+      </C.Section>
 
-      <C.Right />
-      
+      <C.Background />
     </C.Container>
   );
 }
