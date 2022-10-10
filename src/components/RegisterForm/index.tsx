@@ -7,6 +7,7 @@ import "firebase/compat/database";
 import { appFirebase } from "../../config/firebase";
 import { useFirstNameContext } from "../../context/FirstName";
 import { ModalValidation } from "../Validation/modalValidate";
+import { Input } from "../Form/styles";
 
 export const RegisterForm = () => {
   const { firstName, setFirstName } = useFirstNameContext();
@@ -14,22 +15,22 @@ export const RegisterForm = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmationPassword, setConfirmationPassword] = useState<string>("");
-  const [noValidated, setNoValidated] = useState<boolean>(false);
+  const [invalidated, setInvalidated] = useState<boolean>(false);
   const [mode, setMode] = useState<boolean>(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (confirmationPassword === password) {
-      setNoValidated(false);
+      setInvalidated(false);
     } else {
-      setNoValidated(true);
+      setInvalidated(true);
     }
   }, [password, confirmationPassword]);
 
   const register = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if(noValidated) {
+    if(invalidated) {
       alert("Erro ao cadastrar, tente novamente!");
     } else {
       alert("Cadastro realizado!");
@@ -52,44 +53,47 @@ export const RegisterForm = () => {
   }
 
   return (
-    <C.Container >
+    <C.Container onSubmit={register}>
       <h2>Cadastro</h2>
 
-      <C.Input
+      <Input 
+        style={{ border: "1px solid white"}}
         type="text"
         placeholder="Nome"
         onChange={(event: any) => setFirstName(event.target.value)}
         value={firstName}
         required
-        noValidated={noValidated}
+        noValidated={invalidated}
       />
 
-      <C.Input
+      <Input
+        style={{ border: "1px solid white"}}
         type="text"
         placeholder="Sobrenome"
         onChange={(event: any) => setLastName(event.target.value)}
         value={lastName}
         required
-        noValidated={noValidated}
+        noValidated={invalidated}
       />
 
-      <C.Input
+      <Input  
+        style={{ border: "1px solid white"}}
         type="text"
         placeholder="Email"
         onChange={(event: any) => setEmail(event.target.value)}
         value={email}
         required
-        noValidated={noValidated}
+        noValidated={invalidated}
       />
 
-      <C.Input
-        type="text"
+      <C.InputPassrd
+        type="password"
         placeholder="Senha"
         onChange={(event: any) => setPassword(event.target.value)}
         onFocus={() => setMode(true)}
         onBlur={() => setMode(false)}
         value={password}
-        noValidated={noValidated}
+        invalidated={invalidated}
         required
       />
 
@@ -100,16 +104,16 @@ export const RegisterForm = () => {
         /> : "" 
       }
 
-      <C.Input
-        type="text"
+      <C.InputPassrd
+        type="password"
         placeholder="Confirme sua senha"
         onChange={(event: any) => setConfirmationPassword(event.target.value)}
         value={confirmationPassword}
-        noValidated={noValidated}
+        invalidated={invalidated}
         required
       />
 
-      {noValidated ? <C.Erro>Ops, senhas não conferem. Tente novamente!</C.Erro> : ""}
+      {invalidated ? <C.ErroPassrd>Ops, senhas não conferem. Tente novamente!</C.ErroPassrd> : ""}
 
       <C.Button>Cadastrar</C.Button>
     </C.Container>

@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { btnLogin, msgError } from "../../UI/variables";
+import { btnLogin, msgErrorPssrwd } from "../../UI/variables";
 
-interface IInput {
-  noValidated: boolean;
+interface IInputPassrd {
+  invalidated: boolean;
 }
 
-export const Container = styled.div`
+export const Container = styled.form`
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
@@ -29,8 +29,8 @@ export const Container = styled.div`
   }
 `;
 
-export const Input = styled.input<IInput>`
-  border: ${({ noValidated }) => noValidated ? "1px solid #E9B425" : "1px solid white"};
+export const InputPassrd = styled.input<IInputPassrd>`
+  border: ${({ invalidated }) => invalidated ? "1px solid #e74c3c" : "1px solid white"};
   padding: 13px 8px;
   box-sizing: border-box;
   background: #26292C;
@@ -79,10 +79,10 @@ export const Button = styled.button`
   }
 `;
 
-export const Erro = styled.span`
+export const ErroPassrd = styled.span`
   font-size: .8rem;
   text-align: center;
-  color: ${msgError};
+  color: ${msgErrorPssrwd};
   margin-top: 1rem;
   width: 14rem;
 

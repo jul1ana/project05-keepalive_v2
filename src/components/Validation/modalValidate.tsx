@@ -17,7 +17,6 @@ export function ModalValidation({password, mode}:IValidate) {
   return(
     <C.Container fade={mode}>
       <div>
-        {/* <h4>Sua senha deve conter:</h4> */}
         <C.Span status={validation.minCharacter}> 
           <C.Icon status={validation.minCharacter} />
           minímo de 6 caracteres.

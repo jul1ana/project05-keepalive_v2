@@ -17,7 +17,7 @@ export const Container = styled.div<{fade:boolean}>`
 `;
 
 export const Span = styled.span<{status: boolean}>`
-  color: ${({ status }) => (status ? "green" : "red")};
+  color: ${({ status }) => (status ? "#2ecc71" : "#e74c3c")};
   display: flex;
   font-size: 0.8rem;
   display: flex;

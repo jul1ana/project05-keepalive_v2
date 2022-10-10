@@ -4,6 +4,10 @@ export const fontLogin = '#E0E0E0';
 export const btnLogin = 'linear-gradient(90deg, #FF2D04 0%, #C13216 100%)';
 export const msgError = '#E9B425';
 
+// Register
+export const msgErrorPssrwd = '#e74c3c';
+export const msgSucessPssrwd = '#2ecc71';
+
 // Home
 export const titleMain = '#C12D18';
 export const text = '#222222';
