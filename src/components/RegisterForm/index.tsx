@@ -8,6 +8,9 @@ import { appFirebase } from "../../config/firebase";
 import { useFirstNameContext } from "../../context/FirstName";
 import { ModalValidation } from "../Validation/modalValidate";
 import { Input } from "../Form/styles";
+import Swal from "sweetalert2";
+import Logo from "../../assets/logoHeader.svg";
+import { btnLink, text } from "../../UI/variables";
 
 export const RegisterForm = () => {
   const { firstName, setFirstName } = useFirstNameContext();
@@ -30,10 +33,24 @@ export const RegisterForm = () => {
   const register = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if(invalidated) {
-      alert("Erro ao cadastrar, tente novamente!");
+    if (invalidated) {
+      Swal.fire(
+        'Erro ao efetuar o cadastro!',
+        'Ocorreu um erro ao tentar efetuar o cadastro, tente novamente.',
+        'error'
+      );
     } else {
-      alert("Cadastro realizado!");
+      Swal.fire({
+        imageUrl: Logo,
+        imageWidth: 150,
+        imageHeight: 100,
+        color: '#fff',
+        title: '<strong>Cadastro efetuado!</strong>',
+        background: `${text}`,
+        confirmButtonColor: `${btnLink}`,
+        html:
+          `<p>Parabéns pelo seu cadastro no nosso site, <strong>${firstName}</strong>.</p>`
+      });
     }
 
     const data = {
@@ -44,20 +61,20 @@ export const RegisterForm = () => {
     }
     appFirebase.database().ref().child("users").push(data);
     createUserWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      navigate("/");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
     <C.Container onSubmit={register}>
       <h2>Cadastro</h2>
 
-      <Input 
-        style={{ border: "1px solid white"}}
+      <Input
+        style={{ border: "1px solid white" }}
         type="text"
         placeholder="Nome"
         onChange={(event: any) => setFirstName(event.target.value)}
@@ -67,7 +84,7 @@ export const RegisterForm = () => {
       />
 
       <Input
-        style={{ border: "1px solid white"}}
+        style={{ border: "1px solid white" }}
         type="text"
         placeholder="Sobrenome"
         onChange={(event: any) => setLastName(event.target.value)}
@@ -76,8 +93,8 @@ export const RegisterForm = () => {
         noValidated={invalidated}
       />
 
-      <Input  
-        style={{ border: "1px solid white"}}
+      <Input
+        style={{ border: "1px solid white" }}
         type="text"
         placeholder="Email"
         onChange={(event: any) => setEmail(event.target.value)}
@@ -97,11 +114,11 @@ export const RegisterForm = () => {
         required
       />
 
-      { mode ? 
+      {mode ?
         <ModalValidation
-        password={password}
-        mode={mode}
-        /> : "" 
+          password={password}
+          mode={mode}
+        /> : ""
       }
 
       <C.InputPassrd
