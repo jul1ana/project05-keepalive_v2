@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { backgroundLogin, titleMain } from "../../UI/variables";
 import ImgBack from "../../assets/MaskGroup.png";
+import { backgroundLogin, titleMain } from "../../UI/variables";
 
 export const Container = styled.section`
   background: ${backgroundLogin};

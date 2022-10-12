@@ -1,6 +1,6 @@
 import * as C from "./styles";
-import { RegisterForm } from "../../components/RegisterForm";
 import Logo from "../../assets/logoHeader.svg";
+import { RegisterForm } from "../../components/RegisterForm";
 
 export const Register = () => {
   return (

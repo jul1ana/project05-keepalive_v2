@@ -1,15 +1,15 @@
 import * as C from "./styles";
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 import Logo from "../../assets/LogoCompass.svg";
 import Location from "../../components/Location";
+import { useState, useEffect } from "react";
+import { useRegister } from "../../contexts/RegisterContext";
+import { useNavigate } from "react-router-dom";
 import { Time } from "../../components/Time";
-import { auth } from "../../config/firebase"; 
-import { useFirstNameContext } from "../../context/FirstName";
+import { auth } from "../../config/firebase";
 
 export const Home = () => {
-  const { firstName } = useFirstNameContext();
-  const [cont, setCont] = useState(600);
+  const { fullName } = useRegister();
+  const [cont, setCont] = useState(60);
   const navigate = useNavigate();
 
   const logOut = () => {
@@ -27,7 +27,7 @@ export const Home = () => {
     return () => clearInterval(interval);
   }, [cont]);
 
-  return(
+  return (
     <>
       <C.Header>
         <img src={Logo} />
@@ -52,7 +52,7 @@ export const Home = () => {
 
       <C.Footer>
         <C.Text>
-          <h4>Seja bem vindo, {firstName} !</h4>
+          <h4>Seja bem vindo(a), <br />{fullName.split(" ").slice(0, 1)}!</h4>
           <p>Essa janela do navegador é usada para manter sua sessão de autenticação ativa. Deixe-a aberta em segundo plano e abra uma nova janela para continuar a navegar.</p>
           <hr />
         </C.Text>

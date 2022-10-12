@@ -1,15 +1,18 @@
 import * as C from "./styles";
+import firebase from "firebase/compat/app";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useFirstNameContext } from "../../context/FirstName";
-import firebase from "firebase/compat/app";
+import { useRegister } from "../../contexts/RegisterContext";
 
 export const Form = () => {
-  const { setFirstName } = useFirstNameContext();
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const {
+    setFullName, 
+    email, setEmail, 
+    password, setPassword, 
+  } = useRegister();
+  
   const [noValidated, setNoValidated] = useState<boolean>(false);
   const navigate = useNavigate();
 
@@ -22,7 +25,7 @@ export const Form = () => {
       .on("value", function (snapshot) {
         snapshot.forEach(function (item) {
           if (item.val().email === email) {
-            setFirstName(item.val().firstName);
+            setFullName(item.val().fullName);
           }
         });
       });

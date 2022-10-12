@@ -1,23 +1,25 @@
 import * as C from "./styles";
-import { useEffect, useState } from "react";
+import "firebase/compat/database";
+import Logo from "../../assets/logoHeader.svg";
+import Swal from "sweetalert2";
+import { useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import "firebase/compat/database";
 import { appFirebase } from "../../config/firebase";
-import { useFirstNameContext } from "../../context/FirstName";
 import { ModalValidation } from "../Validation/modalValidate";
 import { Input } from "../Form/styles";
-import Swal from "sweetalert2";
-import Logo from "../../assets/logoHeader.svg";
 import { btnLink, text } from "../../UI/variables";
+import { useRegister } from "../../contexts/RegisterContext";
 
 export const RegisterForm = () => {
-  const { firstName, setFirstName } = useFirstNameContext();
-  const [lastName, setLastName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [confirmationPassword, setConfirmationPassword] = useState<string>("");
+  const {
+    fullName, setFullName, 
+    email, setEmail, 
+    password, setPassword, 
+    confirmationPassword, setConfirmationPassword
+  } = useRegister();
+
   const [invalidated, setInvalidated] = useState<boolean>(false);
   const [mode, setMode] = useState<boolean>(false);
   const navigate = useNavigate();
@@ -49,13 +51,12 @@ export const RegisterForm = () => {
         background: `${text}`,
         confirmButtonColor: `${btnLink}`,
         html:
-          `<p>Parabéns pelo seu cadastro no nosso site, <strong>${firstName}</strong>.</p>`
+          `<p>Parabéns pelo seu cadastro no nosso site, <strong>${fullName.split(" ").slice(0, 1)}</strong>.</p>`
       });
     }
 
     const data = {
-      firstName: firstName,
-      lastName: lastName,
+      fullName: fullName,
       email: email,
       password: password
     }
@@ -76,19 +77,9 @@ export const RegisterForm = () => {
       <Input
         style={{ border: "1px solid white" }}
         type="text"
-        placeholder="Nome"
-        onChange={(event: any) => setFirstName(event.target.value)}
-        value={firstName}
-        required
-        noValidated={invalidated}
-      />
-
-      <Input
-        style={{ border: "1px solid white" }}
-        type="text"
-        placeholder="Sobrenome"
-        onChange={(event: any) => setLastName(event.target.value)}
-        value={lastName}
+        placeholder="Nome completo"
+        onChange={(event: any) => setFullName(event.target.value)}
+        value={fullName}
         required
         noValidated={invalidated}
       />
