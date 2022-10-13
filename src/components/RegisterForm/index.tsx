@@ -34,6 +34,7 @@ export const RegisterForm = () => {
 
   const register = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const Name = fullName.split(" ").slice(0, 1);
 
     if (invalidated) {
       Swal.fire(
@@ -51,7 +52,7 @@ export const RegisterForm = () => {
         background: `${text}`,
         confirmButtonColor: `${btnLink}`,
         html:
-          `<p>Parabéns pelo seu cadastro no nosso site, <strong>${fullName.split(" ").slice(0, 1)}</strong>.</p>`
+          `<p>Parabéns pelo seu cadastro no nosso site, <strong>${Name}</strong>.</p>`
       });
     }
 

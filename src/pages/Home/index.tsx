@@ -1,31 +1,19 @@
 import * as C from "./styles";
 import Logo from "../../assets/LogoCompass.svg";
 import Location from "../../components/Location";
-import { useState, useEffect } from "react";
-import { useRegister } from "../../contexts/RegisterContext";
 import { useNavigate } from "react-router-dom";
 import { Time } from "../../components/Time";
 import { auth } from "../../config/firebase";
+import { Name } from "../../components/Name";
+import { Counter } from "../../components/Counter";
 
 export const Home = () => {
-  const { fullName } = useRegister();
-  const [cont, setCont] = useState(60);
   const navigate = useNavigate();
 
   const logOut = () => {
     auth.signOut();
     navigate("/");
   }
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCont((cont) => cont - 1);
-      if (cont === 0) {
-        navigate("/");
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [cont]);
 
   return (
     <>
@@ -52,14 +40,14 @@ export const Home = () => {
 
       <C.Footer>
         <C.Text>
-          <h4>Seja bem vindo(a), <br />{fullName.split(" ").slice(0, 1)}!</h4>
+          <h4>Seja bem vindo(a), <br />{<Name />}!</h4>
           <p>Essa janela do navegador é usada para manter sua sessão de autenticação ativa. Deixe-a aberta em segundo plano e abra uma nova janela para continuar a navegar.</p>
           <hr />
         </C.Text>
         <C.Cont>
           <p>Application refresh in</p>
           <div>
-            <h3>{cont}</h3>
+            <Counter />
             <p>seconds</p>
           </div>
         </C.Cont>
